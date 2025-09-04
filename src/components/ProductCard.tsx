@@ -9,7 +9,7 @@ interface ProductCardProps {
 const ProductCard: React.FC<ProductCardProps> = ({ product, onProductClick }) => {
   return (
     <div 
-      className="card-product cursor-pointer"
+      className="card-product cursor-pointer group"
       onClick={() => onProductClick(product)}
     >
       <div className="aspect-[3/4] overflow-hidden">
