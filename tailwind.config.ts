@@ -70,6 +70,7 @@ export default {
 			fontFamily: {
 				'display': ['Playfair Display', 'serif'],
 				'body': ['Inter', 'sans-serif'],
+				'urdu': ['Noto Nastaliq Urdu', 'serif'],
 			},
 			boxShadow: {
 				'soft': '0 2px 8px hsl(24 5% 15% / 0.08)',
