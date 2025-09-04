@@ -71,6 +71,11 @@ export default {
 				'display': ['Playfair Display', 'serif'],
 				'body': ['Inter', 'sans-serif'],
 			},
+			boxShadow: {
+				'soft': '0 2px 8px hsl(24 5% 15% / 0.08)',
+				'medium': '0 4px 24px hsl(24 5% 15% / 0.12)',
+				'strong': '0 8px 32px hsl(24 5% 15% / 0.16)',
+			},
 			borderRadius: {
 				lg: 'var(--radius)',
 				md: 'calc(var(--radius) - 2px)',
