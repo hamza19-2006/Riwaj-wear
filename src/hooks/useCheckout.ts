@@ -7,6 +7,7 @@ interface CheckoutData {
   fullName: string;
   email: string;
   whatsapp: string;
+  Shipping Address : string;
 }
 
 export const useCheckout = () => {
@@ -23,6 +24,7 @@ export const useCheckout = () => {
         'Full Name': data.fullName,
         'E-mail': data.email,
         'What\'s app Number': data.whatsapp,
+        'Shipping Address' : data.shippingaddress,
         'Order Cart': {
           items: items.map(item => ({
             id: item.id,
