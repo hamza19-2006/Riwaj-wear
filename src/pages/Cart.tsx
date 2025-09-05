@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag } from 'lucide-react';
 import { useCart } from '@/contexts/CartContext';
+import { useCheckout } from '@/hooks/useCheckout';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
 
 const Cart = () => {
   const { items, removeFromCart, updateQuantity, totalPrice, totalItems } = useCart();
+  const { submitOrder, isLoading } = useCheckout();
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
+  const [checkoutData, setCheckoutData] = useState({
+    fullName: '',
+    email: '',
+    whatsapp: ''
+  });
+
+  const handleCheckoutSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    const result = await submitOrder(checkoutData);
+    if (result.success) {
+      setIsCheckoutOpen(false);
+      setCheckoutData({ fullName: '', email: '', whatsapp: '' });
+    }
+  };
 
   if (items.length === 0) {
     return (
@@ -129,9 +149,77 @@ const Cart = () => {
                 </div>
               </div>
 
-              <Button className="btn-accent w-full py-3 text-lg mb-4">
-                Proceed to Checkout
-              </Button>
+              <Dialog open={isCheckoutOpen} onOpenChange={setIsCheckoutOpen}>
+                <DialogTrigger asChild>
+                  <Button className="btn-accent w-full py-3 text-lg mb-4">
+                    Proceed to Checkout
+                  </Button>
+                </DialogTrigger>
+                <DialogContent className="sm:max-w-md">
+                  <DialogHeader>
+                    <DialogTitle>Order Details</DialogTitle>
+                  </DialogHeader>
+                  <form onSubmit={handleCheckoutSubmit} className="space-y-4">
+                    <div className="space-y-2">
+                      <Label htmlFor="fullName">Full Name *</Label>
+                      <Input
+                        id="fullName"
+                        type="text"
+                        value={checkoutData.fullName}
+                        onChange={(e) => setCheckoutData(prev => ({ ...prev, fullName: e.target.value }))}
+                        required
+                        placeholder="آپ کا پورا نام"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="email">Email *</Label>
+                      <Input
+                        id="email"
+                        type="email"
+                        value={checkoutData.email}
+                        onChange={(e) => setCheckoutData(prev => ({ ...prev, email: e.target.value }))}
+                        required
+                        placeholder="آپ کا ای میل"
+                      />
+                    </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="whatsapp">WhatsApp Number *</Label>
+                      <Input
+                        id="whatsapp"
+                        type="tel"
+                        value={checkoutData.whatsapp}
+                        onChange={(e) => setCheckoutData(prev => ({ ...prev, whatsapp: e.target.value }))}
+                        required
+                        placeholder="آپ کا واٹس ایپ نمبر"
+                      />
+                    </div>
+                    
+                    <div className="border rounded-lg p-4 space-y-2">
+                      <h4 className="font-semibold">Order Summary</h4>
+                      <div className="text-sm space-y-1">
+                        <div className="flex justify-between">
+                          <span>Items ({totalItems})</span>
+                          <span>Rs. {totalPrice.toFixed(2)}</span>
+                        </div>
+                        <div className="flex justify-between">
+                          <span>Shipping</span>
+                          <span>{totalPrice >= 100 ? 'Free' : 'Rs. 250'}</span>
+                        </div>
+                        <div className="border-t pt-2">
+                          <div className="flex justify-between font-semibold">
+                            <span>Total</span>
+                            <span>Rs. {(totalPrice + (totalPrice >= 100 ? 0 : 250)).toFixed(2)}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <Button type="submit" className="w-full" disabled={isLoading}>
+                      {isLoading ? 'Placing Order...' : 'Place Order'}
+                    </Button>
+                  </form>
+                </DialogContent>
+              </Dialog>
 
               <Link
                 to="/shop"

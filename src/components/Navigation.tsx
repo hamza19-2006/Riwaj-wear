@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag, Menu, X } from 'lucide-react';
+import { ShoppingBag, Menu, X, User, LogOut } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 import { useCart } from '@/contexts/CartContext';
+import { useAuth } from '@/contexts/AuthContext';
 
 const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { totalItems } = useCart();
+  const { user, signOut } = useAuth();
+
+  const handleSignOut = async () => {
+    await signOut();
+  };
   const location = useLocation();
 
   const navLinks = [
@@ -43,7 +50,7 @@ const Navigation = () => {
             ))}
           </div>
 
-          {/* Cart Icon */}
+          {/* Cart Icon & Auth */}
           <div className="flex items-center space-x-4">
             <Link to="/cart" className="relative p-2 hover:bg-muted rounded-lg transition-colors">
               <ShoppingBag className="w-6 h-6 text-foreground" />
@@ -53,6 +60,20 @@ const Navigation = () => {
                 </span>
               )}
             </Link>
+
+            {user ? (
+              <Button variant="ghost" onClick={handleSignOut} className="gap-2 hidden md:flex">
+                <LogOut className="h-4 w-4" />
+                <span>Log Out</span>
+              </Button>
+            ) : (
+              <Button asChild variant="outline" className="gap-2 hidden md:flex">
+                <Link to="/auth">
+                  <User className="h-4 w-4" />
+                  <span>Login</span>
+                </Link>
+              </Button>
+            )}
 
             {/* Mobile Menu Button */}
             <button

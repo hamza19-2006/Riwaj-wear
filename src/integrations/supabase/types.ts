@@ -16,28 +16,55 @@ export type Database = {
     Tables: {
       "data of website": {
         Row: {
-          cart: Json | null
           created_at: string
-          email: string | null
+          "E-mail": string | null
+          "Full Name": string | null
           id: string
-          name: string | null
-          "Whats app": string | null
+          "Order Cart": Json | null
+          "What's app Number": string | null
         }
         Insert: {
-          cart?: Json | null
           created_at?: string
-          email?: string | null
+          "E-mail"?: string | null
+          "Full Name"?: string | null
           id: string
-          name?: string | null
-          "Whats app"?: string | null
+          "Order Cart"?: Json | null
+          "What's app Number"?: string | null
         }
         Update: {
-          cart?: Json | null
           created_at?: string
-          email?: string | null
+          "E-mail"?: string | null
+          "Full Name"?: string | null
           id?: string
-          name?: string | null
-          "Whats app"?: string | null
+          "Order Cart"?: Json | null
+          "What's app Number"?: string | null
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string | null
+          id: string
+          role: string | null
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string | null
+          id?: string
+          role?: string | null
+          updated_at?: string
+          user_id?: string
         }
         Relationships: []
       }
@@ -46,7 +73,14 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      get_current_user_role: {
+        Args: Record<PropertyKey, never>
+        Returns: string
+      }
+      is_admin: {
+        Args: Record<PropertyKey, never>
+        Returns: boolean
+      }
     }
     Enums: {
       [_ in never]: never
