@@ -65,7 +65,7 @@ const Cart = () => {
                       {item.category} • Size: {item.selectedSize}
                     </p>
                     <p className="font-semibold text-primary">
-                      ${item.price.toFixed(2)}
+                      Rs. {item.price.toFixed(2)}
                     </p>
                   </div>
 
@@ -111,19 +111,19 @@ const Cart = () => {
               <div className="space-y-4 mb-6">
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Subtotal</span>
-                  <span className="font-medium">${totalPrice.toFixed(2)}</span>
+                  <span className="font-medium">Rs. {totalPrice.toFixed(2)}</span>
                 </div>
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Shipping</span>
                   <span className="font-medium">
-                    {totalPrice >= 100 ? 'Free' : '$10.00'}
+                    {totalPrice >= 100 ? 'Free' : 'Rs. 250'}
                   </span>
                 </div>
                 <div className="border-t border-border pt-4">
                   <div className="flex justify-between">
                     <span className="font-semibold text-lg">Total</span>
                     <span className="font-semibold text-lg text-primary">
-                      ${(totalPrice + (totalPrice >= 100 ? 0 : 10)).toFixed(2)}
+                      Rs. {(totalPrice + (totalPrice >= 100 ? 0 : 250)).toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -143,7 +143,7 @@ const Cart = () => {
               {totalPrice < 100 && (
                 <div className="mt-4 p-4 bg-accent/20 rounded-lg">
                   <p className="text-sm text-foreground">
-                    Add ${(100 - totalPrice).toFixed(2)} more for free shipping!
+                    Add Rs. {(100 - totalPrice).toFixed(2)} more for free shipping!
                   </p>
                 </div>
               )}

@@ -60,7 +60,7 @@ const ProductModal: React.FC<ProductModalProps> = ({ product, isOpen, onClose })
                   {product.category}
                 </p>
                 <p className="font-semibold text-2xl text-fashion-accent">
-                  ${product.price.toFixed(2)}
+                  Rs. {product.price.toFixed(2)}
                 </p>
               </div>
 

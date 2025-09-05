@@ -24,7 +24,7 @@ const Home = () => {
     {
       icon: <Truck className="w-8 h-8 text-fashion-accent" />,
       title: "Free Shipping",
-      description: "Complimentary shipping on all orders over $100"
+      description: "Complimentary shipping on all orders over Rs. 2500"
     },
     {
       icon: <Star className="w-8 h-8 text-fashion-accent" />,
