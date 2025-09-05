@@ -48,15 +48,15 @@ export const useCheckout = () => {
       clearCart();
       
       toast({
-        title: "آرڈر کامیاب!",
-        description: "آپ کا آرڈر کامیابی سے جمع ہو گیا۔ جلد ہی آپ سے رابطہ کیا جائے گا۔",
+        title: "Order Successful!",
+        description: "Your order has been submitted successfully. You will be contacted soon.",
       });
 
       return { success: true };
     } catch (error: any) {
       toast({
-        title: "خرابی",
-        description: error.message || "آرڈر جمع کرنے میں مسئلہ ہے",
+        title: "Error",
+        description: error.message || "Failed to submit order",
         variant: "destructive",
       });
       return { success: false, error };

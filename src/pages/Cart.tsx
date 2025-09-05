@@ -168,7 +168,7 @@ const Cart = () => {
                         value={checkoutData.fullName}
                         onChange={(e) => setCheckoutData(prev => ({ ...prev, fullName: e.target.value }))}
                         required
-                        placeholder="آپ کا پورا نام"
+                        placeholder="Your full name"
                       />
                     </div>
                     <div className="space-y-2">
@@ -179,7 +179,7 @@ const Cart = () => {
                         value={checkoutData.email}
                         onChange={(e) => setCheckoutData(prev => ({ ...prev, email: e.target.value }))}
                         required
-                        placeholder="آپ کا ای میل"
+                        placeholder="Your email address"
                       />
                     </div>
                     <div className="space-y-2">
@@ -190,7 +190,7 @@ const Cart = () => {
                         value={checkoutData.whatsapp}
                         onChange={(e) => setCheckoutData(prev => ({ ...prev, whatsapp: e.target.value }))}
                         required
-                        placeholder="آپ کا واٹس ایپ نمبر"
+                        placeholder="Your WhatsApp number"
                       />
                     </div>
                     

@@ -25,14 +25,14 @@ const Auth = () => {
     
     if (error) {
       toast({
-        title: "خرابی",
-        description: error.message || "لاگ ان میں مسئلہ ہے",
+        title: "Error",
+        description: error.message || "Login failed",
         variant: "destructive",
       });
     } else {
       toast({
-        title: "کامیابی",
-        description: "آپ کامیابی سے لاگ ان ہو گئے",
+        title: "Success",
+        description: "You have successfully logged in",
       });
       navigate('/');
     }
@@ -48,14 +48,14 @@ const Auth = () => {
     
     if (error) {
       toast({
-        title: "خرابی",
-        description: error.message || "اکاؤنٹ بنانے میں مسئلہ ہے",
+        title: "Error",
+        description: error.message || "Account creation failed",
         variant: "destructive",
       });
     } else {
       toast({
-        title: "کامیابی",
-        description: "آپ کا اکاؤنٹ بن گیا! اپنا ای میل چیک کریں",
+        title: "Success",
+        description: "Account created! Please check your email",
       });
     }
     
@@ -70,42 +70,42 @@ const Auth = () => {
             Gul ✿ Bahar
           </CardTitle>
           <CardDescription>
-            اپنا اکاؤنٹ بنائیں یا لاگ ان کریں
+            Create your account or sign in
           </CardDescription>
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="signin" className="w-full">
             <TabsList className="grid w-full grid-cols-2">
-              <TabsTrigger value="signin">لاگ ان</TabsTrigger>
-              <TabsTrigger value="signup">اکاؤنٹ بنائیں</TabsTrigger>
+              <TabsTrigger value="signin">Sign In</TabsTrigger>
+              <TabsTrigger value="signup">Sign Up</TabsTrigger>
             </TabsList>
             
             <TabsContent value="signin">
               <form onSubmit={handleSignIn} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="signin-email">ای میل</Label>
+                  <Label htmlFor="signin-email">Email</Label>
                   <Input
                     id="signin-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    placeholder="آپ کا ای میل ایڈریس"
+                    placeholder="Your email address"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signin-password">پاس ورڈ</Label>
+                  <Label htmlFor="signin-password">Password</Label>
                   <Input
                     id="signin-password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    placeholder="آپ کا پاس ورڈ"
+                    placeholder="Your password"
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'انتظار کریں...' : 'لاگ ان کریں'}
+                  {loading ? 'Please wait...' : 'Sign In'}
                 </Button>
               </form>
             </TabsContent>
@@ -113,41 +113,41 @@ const Auth = () => {
             <TabsContent value="signup">
               <form onSubmit={handleSignUp} className="space-y-4">
                 <div className="space-y-2">
-                  <Label htmlFor="signup-name">نام</Label>
+                  <Label htmlFor="signup-name">Full Name</Label>
                   <Input
                     id="signup-name"
                     type="text"
                     value={fullName}
                     onChange={(e) => setFullName(e.target.value)}
                     required
-                    placeholder="آپ کا پورا نام"
+                    placeholder="Your full name"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-email">ای میل</Label>
+                  <Label htmlFor="signup-email">Email</Label>
                   <Input
                     id="signup-email"
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
-                    placeholder="آپ کا ای میل ایڈریس"
+                    placeholder="Your email address"
                   />
                 </div>
                 <div className="space-y-2">
-                  <Label htmlFor="signup-password">پاس ورڈ</Label>
+                  <Label htmlFor="signup-password">Password</Label>
                   <Input
                     id="signup-password"
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
-                    placeholder="آپ کا پاس ورڈ"
+                    placeholder="Your password"
                     minLength={6}
                   />
                 </div>
                 <Button type="submit" className="w-full" disabled={loading}>
-                  {loading ? 'انتظار کریں...' : 'اکاؤنٹ بنائیں'}
+                  {loading ? 'Please wait...' : 'Create Account'}
                 </Button>
               </form>
             </TabsContent>
