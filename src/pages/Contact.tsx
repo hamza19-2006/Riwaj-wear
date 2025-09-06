@@ -26,25 +26,25 @@ const Contact = () => {
     {
       icon: <Mail className="w-6 h-6 text-fashion-accent" />,
       title: "Email",
-      info: "hello@elegance.com",
+      info: "Riwajwear123@gmail.com",
       description: "Send us an email anytime"
     },
     {
       icon: <Phone className="w-6 h-6 text-fashion-accent" />,
       title: "Phone",
-      info: "+1 (555) 123-4567",
+      info: "03704787871",
       description: "Call us during business hours"
     },
     {
       icon: <MapPin className="w-6 h-6 text-fashion-accent" />,
       title: "Address",
-      info: "123 Fashion Avenue, NYC 10001",
+      info: "Lahore",
       description: "Visit our flagship store"
     },
     {
       icon: <Clock className="w-6 h-6 text-fashion-accent" />,
       title: "Hours",
-      info: "Mon-Fri: 9AM-6PM",
+      info: "Mon-Fri: 9AM-9PM",
       description: "Customer service hours"
     }
   ];

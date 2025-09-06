@@ -15,7 +15,8 @@ const Cart = () => {
   const [checkoutData, setCheckoutData] = useState({
     fullName: '',
     email: '',
-    whatsapp: ''
+    whatsapp: '',
+    shippingAddress: ''
   });
 
   const handleCheckoutSubmit = async (e: React.FormEvent) => {
@@ -23,7 +24,7 @@ const Cart = () => {
     const result = await submitOrder(checkoutData);
     if (result.success) {
       setIsCheckoutOpen(false);
-      setCheckoutData({ fullName: '', email: '', whatsapp: '' });
+      setCheckoutData({ fullName: '', email: '', whatsapp: '', shippingAddress: '' });
     }
   };
 
@@ -136,14 +137,14 @@ const Cart = () => {
                 <div className="flex justify-between">
                   <span className="text-muted-foreground">Shipping</span>
                   <span className="font-medium">
-                    {totalPrice >= 100 ? 'Free' : 'Rs. 250'}
+                    {totalPrice >= 2500 ? 'Free' : 'Rs. 250'}
                   </span>
                 </div>
                 <div className="border-t border-border pt-4">
                   <div className="flex justify-between">
                     <span className="font-semibold text-lg">Total</span>
                     <span className="font-semibold text-lg text-primary">
-                      Rs. {(totalPrice + (totalPrice >= 100 ? 0 : 250)).toFixed(2)}
+                      Rs. {(totalPrice + (totalPrice >= 2500 ? 0 : 250)).toFixed(2)}
                     </span>
                   </div>
                 </div>
@@ -193,6 +194,17 @@ const Cart = () => {
                         placeholder="Your WhatsApp number"
                       />
                     </div>
+                    <div className="space-y-2">
+                      <Label htmlFor="shippingAddress">Shipping Address *</Label>
+                      <Input
+                        id="shippingAddress"
+                        type="text"
+                        value={checkoutData.shippingAddress}
+                        onChange={(e) => setCheckoutData(prev => ({ ...prev, shippingAddress: e.target.value }))}
+                        required
+                        placeholder="Your complete shipping address"
+                      />
+                    </div>
                     
                     <div className="border rounded-lg p-4 space-y-2">
                       <h4 className="font-semibold">Order Summary</h4>
@@ -203,12 +215,12 @@ const Cart = () => {
                         </div>
                         <div className="flex justify-between">
                           <span>Shipping</span>
-                          <span>{totalPrice >= 100 ? 'Free' : 'Rs. 250'}</span>
+                          <span>{totalPrice >= 2500 ? 'Free' : 'Rs. 250'}</span>
                         </div>
                         <div className="border-t pt-2">
                           <div className="flex justify-between font-semibold">
                             <span>Total</span>
-                            <span>Rs. {(totalPrice + (totalPrice >= 100 ? 0 : 250)).toFixed(2)}</span>
+                            <span>Rs. {(totalPrice + (totalPrice >= 2500 ? 0 : 250)).toFixed(2)}</span>
                           </div>
                         </div>
                       </div>
@@ -228,10 +240,10 @@ const Cart = () => {
                 Continue Shopping
               </Link>
 
-              {totalPrice < 100 && (
+              {totalPrice < 2500 && (
                 <div className="mt-4 p-4 bg-accent/20 rounded-lg">
                   <p className="text-sm text-foreground">
-                    Add Rs. {(100 - totalPrice).toFixed(2)} more for free shipping!
+                    Add Rs. {(2500 - totalPrice).toFixed(2)} more for free shipping!
                   </p>
                 </div>
               )}

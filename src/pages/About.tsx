@@ -31,11 +31,11 @@ const About = () => {
         {/* Header */}
         <div className="text-center mb-16">
           <h1 className="font-display text-4xl md:text-5xl font-semibold text-primary mb-6">
-            About Elegance
+            About Riwaj Wear
           </h1>
           <p className="text-xl text-muted-foreground leading-relaxed">
-            Founded on the belief that fashion should be both beautiful and responsible, 
-            Elegance curates premium clothing that transcends seasonal trends.
+            Riwaj Wear – Tradition with Elegance. Founded in 2024, we are a women's clothing brand 
+            inspired by the beauty of tradition and the charm of modern fashion.
           </p>
         </div>
 
@@ -47,21 +47,20 @@ const About = () => {
             </h2>
             <div className="prose prose-lg max-w-none text-foreground">
               <p className="mb-6">
-                Elegance was born from a simple vision: to create a fashion destination where quality, 
-                sustainability, and style converge. Founded in 2020, we began our journey with a 
-                commitment to challenging the fast fashion industry by offering carefully curated 
-                pieces that stand the test of time.
+                Riwaj Wear – Tradition with Elegance. Founded in 2024, Riwaj Wear is a women's clothing brand 
+                inspired by the beauty of tradition and the charm of modern fashion. Our collections are 
+                crafted with premium fabrics, intricate embroidery, and timeless designs that reflect 
+                sophistication and cultural grace.
               </p>
               <p className="mb-6">
-                Our team travels the world to discover emerging designers and established artisans 
-                who share our values of exceptional craftsmanship and ethical production. Every piece 
-                in our collection tells a story of dedication, skill, and respect for both the 
-                environment and the people who create our beautiful clothing.
+                At Riwaj Wear, we believe every woman deserves elegance in her everyday wear and confidence 
+                in her festive attire. From casuals to luxury suits, each piece is created with care, 
+                comfort, and style. Our mission is to blend heritage with contemporary trends, making 
+                fashion not just wearable but unforgettable.
               </p>
               <p>
-                Today, Elegance serves customers who appreciate the difference that thoughtful design 
-                and responsible production can make. We're not just selling clothes; we're building 
-                a community of conscious consumers who believe that what we wear should reflect our values.
+                Riwaj Wear – where tradition meets elegance. We serve customers who appreciate the 
+                difference that thoughtful design and cultural heritage can make in their wardrobe.
               </p>
             </div>
           </div>
