@@ -15,7 +15,6 @@ const Cart = () => {
   const [checkoutData, setCheckoutData] = useState({
     fullName: '',
     email: '',
-    whatsapp: '',
     shippingAddress: ''
   });
 
@@ -24,7 +23,7 @@ const Cart = () => {
     const result = await submitOrder(checkoutData);
     if (result.success) {
       setIsCheckoutOpen(false);
-      setCheckoutData({ fullName: '', email: '', whatsapp: '', shippingAddress: '' });
+      setCheckoutData({ fullName: '', email: '', shippingAddress: '' });
     }
   };
 
@@ -184,17 +183,6 @@ const Cart = () => {
                         onChange={(e) => setCheckoutData(prev => ({ ...prev, email: e.target.value }))}
                         required
                         placeholder="Your email address"
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="whatsapp">WhatsApp Number *</Label>
-                      <Input
-                        id="whatsapp"
-                        type="tel"
-                        value={checkoutData.whatsapp}
-                        onChange={(e) => setCheckoutData(prev => ({ ...prev, whatsapp: e.target.value }))}
-                        required
-                        placeholder="Your WhatsApp number"
                       />
                     </div>
                     <div className="space-y-2">

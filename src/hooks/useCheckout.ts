@@ -6,7 +6,6 @@ import { useToast } from '@/hooks/use-toast';
 interface CheckoutData {
   fullName: string;
   email: string;
-  whatsapp: string;
   shippingAddress: string;
 }
 
@@ -23,8 +22,7 @@ export const useCheckout = () => {
         id: crypto.randomUUID(),
         'Full Name': data.fullName,
         'E-mail': data.email,
-        'What\'s app Number': data.whatsapp,
-        'Shipping Address' : data.shippingAddress,
+        'Shipping Address': data.shippingAddress,
         'Order Cart': {
           items: items.map(item => ({
             id: item.id,
