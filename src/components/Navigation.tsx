@@ -31,7 +31,7 @@ const Navigation = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <h1 className="font-display text-2xl font-semibold text-primary">
-              Gul ✿ Bahar
+              Riwaj Wear
             </h1>
           </Link>
 

@@ -6,7 +6,7 @@ import { useCheckout } from '@/hooks/useCheckout';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from '@/components/ui/dialog';
 
 const Cart = () => {
   const { items, removeFromCart, updateQuantity, totalPrice, totalItems } = useCart();
@@ -159,6 +159,9 @@ const Cart = () => {
                 <DialogContent className="sm:max-w-md">
                   <DialogHeader>
                     <DialogTitle>Order Details</DialogTitle>
+                    <DialogDescription>
+                      Please fill in your details to complete your order
+                    </DialogDescription>
                   </DialogHeader>
                   <form onSubmit={handleCheckoutSubmit} className="space-y-4">
                     <div className="space-y-2">
